@@ -1,0 +1,35 @@
+<!-- item_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    Items
+    <a class="btn btn-primary" href="{% url 'item:item_create' %}">Add</a>
+</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+    <tr>
+        <td>
+            <a href="{{ object.get_absolute_url }}">{{ object.cat_name }}</a>
+        </td>
+        <td>
+            <a href="{% url 'item:item_update' object.pk %}">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a href="{% url 'item:item_delete' object.pk %}" style="padding-left: 7px">
+                <i class="fa fa-close no"></i>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% include "includes/pagination.html" %}
+{% endblock content %}
