@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'PIN.core',
     'PIN.category',
     'PIN.item',
-    'PIN.crm',
 ]
 
 MIDDLEWARE = [
